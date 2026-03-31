@@ -2,7 +2,7 @@ name: Automated Game Scrape
 
 on:
   schedule:
-    - cron: '0 12 * * *' # Draait elke dag om 12:00 uur
+    - cron: '*/5 * * * *'
   workflow_dispatch: 
 
 jobs:
