@@ -1,0 +1,24 @@
+name: Automated Game Scrape
+
+on:
+  schedule:
+    - cron: '0 12 * * *' # Draait elke dag om 12:00 uur
+  workflow_dispatch: # Hiermee kun je zelf op 'Play' drukken voor je video-bewijs
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Scraper
+        run: python scraper.py
